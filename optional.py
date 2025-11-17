@@ -25,7 +25,7 @@ def merge_k_lists(lists: Iterable[Iterable[T]]) -> List[T]:
     heap: list = []
     # Build iterators and push first element of each (if any) to the heap.
     for idx, seq in enumerate(lists):
-        it = iter(sorted(seq))
+        it = iter(seq)
         try:
             first = next(it)
         except StopIteration:
@@ -49,7 +49,7 @@ def merge_k_lists(lists: Iterable[Iterable[T]]) -> List[T]:
 
 # Generate list with random integer values in interval [min, max)
 def rand_list(n, min=0, max=100):
-    return [random.randint(min, max) for _ in range(n)]
+    return sorted([random.randint(min, max) for _ in range(n)])
 
 
 if __name__ == "__main__":
